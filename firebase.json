@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist",
+    "target": "trip-my-car",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

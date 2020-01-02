@@ -1,0 +1,11 @@
+@import '~fundamental-styles/dist/fundamental-styles.css';
+
+.done {
+    text-decoration: line-through;
+}
+
+.todo-label {
+    display: inline-block;
+    width: 100%;
+    line-height: 2.75rem;
+}

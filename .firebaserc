@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "trip-fc58b"
+  },
+  "targets": {
+    "trip-fc58b": {
+      "hosting": {
+        "trip-my-car": [
+          "trip-my-car"
+        ]
+      }
+    }
+  }
+}
