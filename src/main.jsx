@@ -2,7 +2,9 @@ import './scss/style.scss'
 
 import { ExpensesComponent } from './expenses.jsx'
 import ReactDOM from 'react-dom';
-import * as firebase from 'firebase'
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 import * as LuigiClient from '@kyma-project/luigi-client'
 import { CarService } from './carService.js';
 
@@ -19,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 
 LuigiClient.addInitListener((context) => {
     var credential = firebase.auth.GoogleAuthProvider.credential(context.idToken);
-    
+
     firebase.auth().signInWithCredential(credential)
         .then(() => {
             const database = firebase.database();
@@ -34,14 +36,7 @@ LuigiClient.addInitListener((context) => {
             );
         })
         .catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            console.error(error)
         });
 })
 
