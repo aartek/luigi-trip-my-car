@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { ExpenseComponent } from "./expense.jsx";
+import React, {Component} from "react";
+import {ExpenseComponent} from "./expense.jsx";
 import * as uuid from "uuid/v4";
 import * as LuigiClient from '@luigi-project/client'
 
@@ -31,14 +31,14 @@ export class ExpensesComponent extends Component {
     LuigiClient.uxManager().showLoadingIndicator();
     this.carId = await this.carService.getOrCreateCar();
 
-    this.setState({ expenses: [] });
+    this.setState({expenses: []});
 
     this.carService.getExpenses(this.carId).subscribe({
       async next(expenses) {
         expenses.push(
           new Expense(await that.carService.generateExpenseId(), "", "", "")
         );
-        that.setState({ expenses });
+        that.setState({expenses});
       }
     });
     LuigiClient.uxManager().hideLoadingIndicator();
@@ -56,7 +56,7 @@ export class ExpensesComponent extends Component {
     if (last.part && last.distance > 0 && last.price > 0) {
       newExpenses.push(new Expense(uuid(), "", "", ""));
     }
-    this.setState({ expenses: newExpenses });
+    this.setState({expenses: newExpenses});
   }
 
   handleSubmit(event) {
@@ -72,7 +72,7 @@ export class ExpensesComponent extends Component {
   handleDelete(idx) {
     const expenses = this.state.expenses.slice();
     expenses.splice(idx, 1);
-    this.setState({ expenses });
+    this.setState({expenses});
   }
 
   displayDeleteButton(idx, expenses) {
@@ -104,40 +104,39 @@ export class ExpensesComponent extends Component {
     });
   }
 
+
+
+
   render() {
     return (
       <form name="form" onSubmit={this.handleSubmit}>
-        <header className="fd-page__header fd-has-background-color-neutral-2">
+        <header>
           <div className="fd-action-bar">
             <div className="fd-action-bar__header">
               <h3 className="fd-action-bar__title">My car</h3>
-              <p className="fd-action-bar__description">
-                Define car exploitation costs
-              </p>
+              <div className="fd-action-bar__actions">
+                <button className="fd-button fd-button--compact" type="submit">Save</button>
+              </div>
             </div>
-            <div className="fd-action-bar__actions">
-              <button type="submit" className=" fd-button--emphasized">
-                Save
-              </button>
-            </div>
+            <p className="fd-action-bar__description"> Define car exploitation costs</p>
           </div>
         </header>
         <div className="fd-page__content fd-has-background-color-neutral-2">
           <section className="fd-section">
             <table className="fd-table">
               <thead className="fd-table__header">
-                <tr className="fd-table__row">
-                  <th className="fd-table__cell" scope="col">
-                    Part
-                  </th>
-                  <th className="fd-table__cell" scope="col">
-                    Kilometers
-                  </th>
-                  <th className="fd-table__cell" scope="col">
-                    Price
-                  </th>
-                  <th className="fd-table__cell" scope="col"></th>
-                </tr>
+              <tr className="fd-table__row">
+                <th className="fd-table__cell" scope="col">
+                  Part
+                </th>
+                <th className="fd-table__cell" scope="col">
+                  Kilometers
+                </th>
+                <th className="fd-table__cell" scope="col">
+                  Price
+                </th>
+                <th className="fd-table__cell" scope="col"></th>
+              </tr>
               </thead>
               <tbody className="fd-table__body">{this.renderExpenses()}</tbody>
             </table>
