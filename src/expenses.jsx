@@ -121,7 +121,7 @@ export class ExpensesComponent extends Component {
             <p className="fd-action-bar__description"> Define car exploitation costs</p>
           </div>
         </header>
-        <div className="fd-page__content fd-has-background-color-neutral-2">
+        <div className="fd-page__content">
           <section className="fd-section">
             <table className="fd-table">
               <thead className="fd-table__header">
