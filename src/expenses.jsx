@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ExpenseComponent } from "./expense.jsx";
 import * as uuid from "uuid/v4";
-import * as LuigiClient from "@kyma-project/luigi-client";
+import * as LuigiClient from '@luigi-project/client'
 
 export class Expense {
   constructor(id, part, distance, price) {
