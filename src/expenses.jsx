@@ -115,7 +115,7 @@ export class ExpensesComponent extends Component {
             <div className="fd-action-bar__header">
               <h3 className="fd-action-bar__title">My car</h3>
               <div className="fd-action-bar__actions">
-                <button className="fd-button fd-button--compact" type="submit">Save</button>
+                <button className="fd-button fd-button--primary" type="submit">Save</button>
               </div>
             </div>
             <p className="fd-action-bar__description"> Define car exploitation costs</p>
