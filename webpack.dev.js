@@ -68,7 +68,9 @@ module.exports = {
 		new CopyPlugin([{
 			from: '*.html',
 			context: 'src'
-		}])
+		}], {
+      copyUnmodified: true //fixes conflict with clean webpack plugin https://github.com/webpack-contrib/copy-webpack-plugin/issues/261#issuecomment-552550859
+    })
 	],
 
 	optimization: {
